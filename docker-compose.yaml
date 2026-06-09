@@ -9,7 +9,7 @@ services:
 
     ports:
       # host:container - exposes Kafka to your Mac on port 9092
-      # Your Python producers/consumers connect via localhost:9092
+      # Your producers/consumers connect via localhost:9092
       - "9092:9092"
 
     environment:
@@ -29,7 +29,7 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
 
       # The address Kafka tells clients when they ask "where are the brokers?"
-      # Must be localhost:9092 because your Python code runs on your Mac
+      # Must be localhost:9092 for now because producers/consumers will run locally
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
 
       # Maps each listener name to a security protocol
