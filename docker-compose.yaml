@@ -1,0 +1,50 @@
+services:
+  kafka:
+    # Confluent's enterprise Kafka distribution, pinned to 7.6.0
+    # Never use 'latest' - a silent version bump can break your entire pipeline
+    image: confluentinc/cp-kafka:7.6.0
+
+    # Explicit name so docker ps, logs, and debugging are always clean
+    container_name: meridian-kafka
+
+    ports:
+      # host:container - exposes Kafka to your Mac on port 9092
+      # Your Python producers/consumers connect via localhost:9092
+      - "9092:9092"
+
+    environment:
+      # Unique ID for this broker node
+      KAFKA_NODE_ID: 1
+
+      # KRaft mode - Kafka manages its own metadata without Zookeeper
+      # broker handles messages | controller handles cluster coordination
+      KAFKA_PROCESS_ROLES: broker,controller
+
+      # Who can be elected as controller - format is nodeId@hostname:port
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+
+      # Two sockets Kafka opens inside the container
+      # PLAINTEXT://:9092 - for clients (producers and consumers)
+      # CONTROLLER://:9093 - for internal cluster coordination
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+
+      # The address Kafka tells clients when they ask "where are the brokers?"
+      # Must be localhost:9092 because your Python code runs on your Mac
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+
+      # Maps each listener name to a security protocol
+      # PLAINTEXT = no encryption, fine for local development
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+
+      # Tells Kafka which listener handles controller traffic
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+
+      # You only have 1 broker so replication factor must be 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+      # Auto-create topics when a producer first writes to them
+      # Set false in production
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+
+      # Required in KRaft mode - unique identifier for this Kafka cluster
+      CLUSTER_ID: "Mv6grAFKRMCxP2jRmqDxXg"
