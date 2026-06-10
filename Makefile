@@ -14,6 +14,7 @@ help:
 	@echo "  make status      Show running containers"
 	@echo "  make topics      Create all Kafka topics"
 	@echo "  make producers   Run all three producers simultaneously"
+	@echo "  make stop-producers   Stop all running producers"
 	@echo ""
 
 # Start Kafka
@@ -68,3 +69,11 @@ producers:
 	@echo "  tail -f logs/payments.log"
 	@echo "  tail -f logs/user_events.log"
 	@echo "  tail -f logs/system_logs.log"
+
+# Stop all running producers
+stop-producers:
+	@echo "Stopping all producers..."
+	@pkill -f payments_producer.py || true
+	@pkill -f user_events_producer.py || true
+	@pkill -f system_logs_producer.py || true
+	@echo "Producers stopped"
