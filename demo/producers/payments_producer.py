@@ -6,9 +6,9 @@ from datetime import datetime, timezone
 from confluent_kafka import Producer
 
 # ---------------------------------------------------------------------------
-# Meridian demo data generator - payments
+# Meridian demo data producer - payments
 # This is NOT part of the Meridian platform itself.
-# It generates synthetic payment events so you can run Meridian locally
+# It produces synthetic payment events so you can run Meridian locally
 # without connecting a real data source.
 # In production, replace this with your own Kafka producer or Kafka Connect.
 # ---------------------------------------------------------------------------
@@ -68,7 +68,7 @@ def main():
     # Connect to Kafka
     producer = Producer({"bootstrap.servers": KAFKA_BOOTSTRAP_SERVERS})
 
-    print("Meridian — payment event generator running")
+    print("Meridian — payment event producer running")
     print(f"Writing to topic: {TOPIC}")
     print("Press Ctrl+C to stop\n")
 
