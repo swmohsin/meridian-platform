@@ -77,8 +77,9 @@ def main():
             event = generate_payment_event()
 
             # Send the event to Kafka
-            # key=merchant_id ensures all events for one merchant
-            # go to the same partition - preserving order per merchant
+            # Key = merchant_id ensures all events for one merchant
+            # always go to the same partition — guaranteeing order per merchant.
+            # Kafka hashes the key to determine partition assignment.
             producer.produce(
                 topic=TOPIC,
                 key=event["merchant_id"],
