@@ -42,9 +42,9 @@ services:
       # You only have 1 broker so replication factor must be 1
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-      # Auto-create topics when a producer first writes to them
-      # Set false in production
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      # Topics must be created explicitly via 'make topics'
+      # This prevents auto-creation with wrong partition counts
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
 
       # Required in KRaft mode - unique identifier for this Kafka cluster
       CLUSTER_ID: "Mv6grAFKRMCxP2jRmqDxXg"
