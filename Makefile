@@ -15,6 +15,7 @@ help:
 	@echo "  make topics      Create all Kafka topics"
 	@echo "  make producers   Run all three producers simultaneously"
 	@echo "  make stop-producers   Stop all running producers"
+	@echo "  make consume          Watch unified event stream"
 	@echo ""
 
 # Start Kafka
@@ -78,3 +79,6 @@ stop-producers:
 	@pkill -f user_events_producer.py || true
 	@pkill -f system_logs_producer.py || true
 	@echo "Producers stopped"
+
+consume:
+	@source .venv/bin/activate && python demo/consumers/unified_consumer.py
