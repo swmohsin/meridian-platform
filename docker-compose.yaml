@@ -12,6 +12,10 @@ services:
       # Your producers/consumers connect via localhost:9092
       - "9092:9092"
 
+    volumes:
+      # Persist Kafka data to your Mac so it survives container restarts
+      - ./data/kafka:/var/lib/kafka/data
+
     environment:
       # Unique ID for this broker node
       KAFKA_NODE_ID: 1
