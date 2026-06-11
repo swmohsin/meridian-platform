@@ -58,6 +58,7 @@ topics:
 # Run all three producers simultaneously
 # Each runs in the background, logs go to logs/ folder
 producers:
+	@$(MAKE) topics
 	@mkdir -p logs
 	@echo "Starting all producers..."
 	@source .venv/bin/activate && \
