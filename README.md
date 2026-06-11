@@ -37,7 +37,7 @@ docker compose up -d
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install confluent-kafka
+pip install -r requirements.txt
 ```
 
 **3. Run the payments producer:**
