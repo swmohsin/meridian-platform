@@ -2,7 +2,7 @@ services:
   kafka:
     # Confluent's enterprise Kafka distribution, pinned to 7.6.0
     # Never use 'latest' - a silent version bump can break your entire pipeline
-    image: confluentinc/cp-kafka:7.6.0
+    image: confluentinc/cp-kafka:8.2.0
 
     # Explicit name so docker ps, logs, and debugging are always clean
     container_name: meridian-kafka
