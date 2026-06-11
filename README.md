@@ -2,15 +2,16 @@
 
 > Know what's wrong before your customers do.
 
-Meridian is a real-time event intelligence platform that ingests 
-high-volume data streams, detects anomalies, and uses AI agents 
+Meridian is a real-time event intelligence platform that ingests
+high-volume data streams, detects anomalies, and uses AI agents
 to investigate and explain what happened — before your customers notice.
 
 ## What's Working
 
 - ✅ Kafka event streaming (KRaft mode, no Zookeeper)
-- ✅ Synthetic payment event producer
-- ✅ Consumer with offset tracking
+- ✅ Three synthetic event streams: payments, user activity, system health
+- ✅ Unified real-time view across all three streams
+- ✅ Data persisted to local volume
 - 🔜 Spark lakehouse pipeline
 - 🔜 AI anomaly detection agents
 - 🔜 OpenTelemetry observability
@@ -26,11 +27,13 @@ to investigate and explain what happened — before your customers notice.
 **Prerequisites:** Docker Desktop, Python 3.11+
 
 **1. Start Kafka:**
+
 ```bash
 docker compose up -d
 ```
 
 **2. Create a virtual environment:**
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -38,11 +41,13 @@ pip install confluent-kafka
 ```
 
 **3. Run the payments producer:**
+
 ```bash
 python demo/producers/payments_producer.py
 ```
 
 **4. In a second terminal, run the consumer:**
+
 ```bash
 source .venv/bin/activate
 python demo/consumers/payments_consumer.py
