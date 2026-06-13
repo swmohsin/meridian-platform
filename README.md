@@ -12,7 +12,9 @@ to investigate and explain what happened — before your customers notice.
 - ✅ Three synthetic event streams: payments, user activity, system health
 - ✅ Unified real-time view across all three streams
 - ✅ Data persisted to local volume
-- 🔜 Spark lakehouse pipeline
+- ✅ Bronze layer — payments events stored permanently in Delta Lake
+- 🔜 Silver layer — cleaning and validation
+- 🔜 Gold layer — business aggregates
 - 🔜 AI anomaly detection agents
 - 🔜 OpenTelemetry observability
 
