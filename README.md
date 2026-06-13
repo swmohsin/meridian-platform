@@ -13,6 +13,7 @@ to investigate and explain what happened — before your customers notice.
 - ✅ Unified real-time view across all three streams
 - ✅ Data persisted to local volume
 - ✅ Bronze layer — payments events stored permanently in Delta Lake
+- ✅ Bronze layer queries — failure rates, volume by currency, status breakdown
 - 🔜 Silver layer — cleaning and validation
 - 🔜 Gold layer — business aggregates
 - 🔜 AI anomaly detection agents
