@@ -9,13 +9,14 @@ help:
 	@echo "Meridian — Know what's wrong before your customers do."
 	@echo ""
 	@echo "Usage:"
-	@echo "  make run         Start Kafka"
-	@echo "  make stop        Stop Kafka"
-	@echo "  make status      Show running containers"
-	@echo "  make topics      Create all Kafka topics"
-	@echo "  make producers   Run all three producers simultaneously"
-	@echo "  make stop-producers   Stop all running producers"
-	@echo "  make consume          Watch unified event stream"
+	@echo "  make run        	Start Kafka"
+	@echo "  make stop      	Stop Kafka"
+	@echo "  make status     	Show running containers"
+	@echo "  make topics    	Create all Kafka topics"
+	@echo "  make producers  	Run all three producers simultaneously"
+	@echo "  make stop-producers	Stop all running producers"
+	@echo "  make consume         	Watch unified event stream"
+	@echo "  make bronze          	Run Bronze lakehouse pipeline"
 	@echo ""
 
 # Start Kafka
@@ -82,3 +83,7 @@ stop-producers:
 
 consume:
 	@source .venv/bin/activate && python demo/consumers/unified_consumer.py
+
+bronze:
+	@echo "Starting Bronze pipeline — Ctrl+C to stop"
+	@.venv/bin/python lakehouse/bronze/payments_bronze.py
