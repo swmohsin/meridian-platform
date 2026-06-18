@@ -19,6 +19,7 @@ help:
 	@echo "  make bronze-payments      	Run Bronze payments pipeline"
 	@echo "  make bronze-user-events   	Run Bronze user events pipeline"
 	@echo "  make bronze-system-logs   	Run Bronze system logs pipeline"
+	@echo "  make silver-payments		Run Silver payment pipeline"
 	@echo ""
 
 # Start Kafka
@@ -97,3 +98,7 @@ bronze-user-events:
 bronze-system-logs:
 	@echo "Starting Bronze system logs pipeline — Ctrl+C to stop"
 	@.venv/bin/python lakehouse/bronze/system_logs_bronze.py
+
+silver-payments:	
+	@echo "Running Silver payments pipeline..."
+	@.venv/bin/python lakehouse/silver/payments_silver.py
