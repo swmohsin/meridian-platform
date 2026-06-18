@@ -14,6 +14,7 @@ help:
 	@echo "  make status     		Show running containers"
 	@echo "  make topics    		Create all Kafka topics"
 	@echo "  make producers  		Run all three producers simultaneously"
+	@echo "  make dirty-payments-producer	Run dirty payments data producer for testing Silver"
 	@echo "  make stop-producers		Stop all running producers"
 	@echo "  make consume         		Watch unified event stream"
 	@echo "  make bronze-payments      	Run Bronze payments pipeline"
@@ -102,3 +103,7 @@ bronze-system-logs:
 silver-payments:	
 	@echo "Running Silver payments pipeline..."
 	@.venv/bin/python lakehouse/silver/payments_silver.py
+
+dirty-payments-producer:
+	@echo "Starting dirty payments producer..."
+	@.venv/bin/python demo/producers/dirty_payments_producer.py
