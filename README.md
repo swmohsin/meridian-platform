@@ -15,7 +15,7 @@ to investigate and explain what happened — before your customers notice.
 - ✅ Bronze layer — payments events stored permanently in Delta Lake
 - ✅ Bronze layer queries — failure rates, volume by currency, status breakdown
 - ✅ Silver layer — 96.1% data quality, drops nulls, invalid records, duplicates
-- 🔜 Gold layer — business aggregates
+- ✅ Gold layer — hourly merchant metrics, failure rate detection
 - 🔜 AI anomaly detection agents
 - 🔜 OpenTelemetry observability
 
