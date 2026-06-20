@@ -95,20 +95,4 @@ from Kafka downward is the exact engine built for the portfolio project.
 
 ### When to revisit
 
-After the 6-month roadmap is complete. At that point this becomes a legitimate side-project or product idea worth evaluating on its own merits — market demand, Shopify App Store economics, competition from existing apps (e.g. fraud/analytics apps already in the Shopify ecosystem).
-
-### Interview framing (usable now, without building it)
-
-Even undocumented, this is a credible answer to "how would you extend
-this system":
-
-> "Meridian's pipeline is intentionally event-type agnostic. The Bronze/
-> Silver/Gold layers and the statistical baseline approach don't care
-> if the source is payments, user activity, or e-commerce orders — they
-> care about volume, ratios, and deviation from an entity's own history.
-> Extending to a new domain like Shopify would mean writing a thin
-> connector that translates webhooks into the same Kafka topics — the
-> core engine doesn't change."
-
-This demonstrates architectural thinking about extensibility without
-having spent the time actually building the extension.
+After the Meridian roadmap is complete. At that point this becomes a legitimate side-project or product idea worth evaluating on its own merits — market demand, Shopify App Store economics, competition from existing apps (e.g. fraud/analytics apps already in the Shopify ecosystem).
