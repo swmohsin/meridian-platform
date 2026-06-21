@@ -21,7 +21,10 @@ help:
 	@echo "  make bronze-user-events   	Run Bronze user events pipeline"
 	@echo "  make bronze-system-logs   	Run Bronze system logs pipeline"
 	@echo "  make silver-payments		Run Silver payments pipeline"
+	@echo "  make silver-user-events  	Run Silver user events pipeline"
 	@echo "  make gold-payments		Run Gold payments pipeline"
+	@echo "  make gold-user-events    	Run Gold user events pipeline"
+
 	@echo ""
 
 # Start Kafka
@@ -112,3 +115,11 @@ dirty-payments-producer:
 gold-payments:
 	@echo "Running Gold payments pipeline..."
 	@.venv/bin/python lakehouse/gold/payments_gold.py
+
+	silver-user-events:
+	@echo "Running Silver user events pipeline..."
+	@.venv/bin/python lakehouse/silver/user_events_silver.py
+
+gold-user-events:
+	@echo "Running Gold user events pipeline..."
+	@.venv/bin/python lakehouse/gold/user_events_gold.py
