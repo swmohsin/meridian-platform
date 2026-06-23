@@ -15,7 +15,7 @@ what questions Gold can answer directly and what it cannot.
 **Per merchant per day** — rejected.
 Too coarse for anomaly detection. A 2-hour failure spike would
 be diluted across 24 hours of normal data, hiding the signal.
-Meridian's promise is catching problems in minutes, not waiting
+Meridian's promise is catching problems quickly, not waiting
 for tomorrow's daily report.
 
 **Per merchant per minute** — rejected.

@@ -14,7 +14,7 @@ the sequence of events that led to a failure.
 ## Why service and not something else
 
 **Random / no key** — rejected.
-Even distribution across partitions but destroys ordering.
+Even distribution across partitions destroys ordering.
 You cannot reconstruct "warning → warning → error" sequence
 for a specific service if those events land on different partitions.
 

@@ -19,7 +19,7 @@ consumer forever — it is hard to change later.
 **Single topic `raw-events`** — rejected.
 All event types mixed together. Every consumer must filter out
 the events it doesn't care about. Schema evolution becomes a nightmare —
-changing the payment event schema risks breaking the system logs consumer.
+changing the payment event schema risks breaking the system logs or consumer logs.  
 Impossible to set different retention policies per event type.
 
 **One topic per event type** — chosen.
