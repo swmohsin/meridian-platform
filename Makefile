@@ -116,7 +116,7 @@ gold-payments:
 	@echo "Running Gold payments pipeline..."
 	@.venv/bin/python lakehouse/gold/payments_gold.py
 
-	silver-user-events:
+silver-user-events:
 	@echo "Running Silver user events pipeline..."
 	@.venv/bin/python lakehouse/silver/user_events_silver.py
 
