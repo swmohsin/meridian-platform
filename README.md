@@ -16,6 +16,8 @@ to investigate and explain what happened — before your customers notice.
 - ✅ Bronze layer queries — failure rates, volume by currency, status breakdown
 - ✅ Silver layer — 96.1% data quality, drops nulls, invalid records, duplicates
 - ✅ Gold layer — hourly merchant metrics, failure rate detection
+- ✅ Full medallion architecture (Bronze/Silver/Gold) for all three streams: payments, user events, system logs
+- ✅ Statistical anomaly baselines for payment failure rates
 - 🔜 AI anomaly detection agents
 - 🔜 OpenTelemetry observability
 
