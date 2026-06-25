@@ -24,7 +24,8 @@ help:
 	@echo "  make silver-user-events  	Run Silver user events pipeline"
 	@echo "  make gold-payments		Run Gold payments pipeline"
 	@echo "  make gold-user-events    	Run Gold user events pipeline"
-
+	@echo "  make silver-system-logs	Run Silver system logs pipeline"
+	@echo "  make gold-system-logs		Run Gold logs pipeline"
 	@echo ""
 
 # Start Kafka
@@ -123,3 +124,11 @@ silver-user-events:
 gold-user-events:
 	@echo "Running Gold user events pipeline..."
 	@.venv/bin/python lakehouse/gold/user_events_gold.py
+
+silver-system-logs:
+	@echo "Running Silver system logs pipeline..."
+	@.venv/bin/python lakehouse/silver/system_logs_silver.py
+
+gold-system-logs:
+	@echo "Running Gold system logs pipeline..."
+	@.venv/bin/python lakehouse/gold/system_logs_gold.py	
